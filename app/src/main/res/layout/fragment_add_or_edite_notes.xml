@@ -1,0 +1,42 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_margin="@dimen/activity_horizontal_margin">
+
+    <EditText
+        android:id="@+id/addNotesHead"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/add_notes_head" />
+
+    <EditText
+        android:id="@+id/addNotesText"
+        android:layout_width="match_parent"
+        android:layout_height="200sp"
+        android:hint="@string/add_notes_text"
+        android:gravity="top"/>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/addNotesOkButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/add_notes_ok_button" />
+
+        <Button
+            android:id="@+id/addNotesBackButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/add_notes_back_button" />
+
+    </LinearLayout>
+
+
+</LinearLayout>

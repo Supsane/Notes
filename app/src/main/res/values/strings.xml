@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Notes</string>
+    <string name="action_delete_all">Delete All</string>
+    <string name="action_add">Add</string>
+    <string name="add_notes_head">Название</string>
+    <string name="add_notes_text">Текст</string>
+    <string name="add_notes_ok_button">OK</string>
+    <string name="add_notes_back_button">Назад</string>
+
+</resources>
