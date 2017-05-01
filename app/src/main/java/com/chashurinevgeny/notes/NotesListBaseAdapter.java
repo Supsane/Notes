@@ -8,9 +8,6 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import java.util.LinkedHashMap;
-import java.util.Map;
-
 /**
  * Created by Chashurin Evgeny on 30.04.2017.
  */
