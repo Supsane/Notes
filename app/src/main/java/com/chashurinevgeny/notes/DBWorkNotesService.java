@@ -9,16 +9,16 @@ import java.util.List;
 
 class DBWorkNotesService implements WorkNotesService {
 
-    private List <String> titleNotes = new ArrayList<>();
-    private List <String> textNotes = new ArrayList<>();
+    private List<String> titleNotesList = new ArrayList<>();
+    private List<String> textNotesList = new ArrayList<>();
 
-    DBWorkNotesService () {
-        titleNotes.add(0, "Title 1");
-        textNotes.add(0, "Text 1");
-        titleNotes.add(0, "Title 2");
-        textNotes.add(0, "Text 2");
-        titleNotes.add(0, "Title 3");
-        textNotes.add(0, "Text 3");
+    DBWorkNotesService() {
+        titleNotesList.add("Title 1");
+        textNotesList.add("Text 1");
+        titleNotesList.add("Title 2");
+        textNotesList.add("Text 2");
+        titleNotesList.add("Title 3");
+        textNotesList.add("Text 3");
     }
 
     @Override
@@ -28,7 +28,8 @@ class DBWorkNotesService implements WorkNotesService {
 
     @Override
     public void addNotes(String titleNotes, String textNotes) {
-
+        titleNotesList.add(titleNotes);
+        textNotesList.add(textNotes);
     }
 
     @Override
@@ -44,7 +45,7 @@ class DBWorkNotesService implements WorkNotesService {
     @Override
     public String[] returnTitleNotes() {
 
-        String[] titleNotesArray = titleNotes.toArray(new String[titleNotes.size()]);
+        String[] titleNotesArray = titleNotesList.toArray(new String[titleNotesList.size()]);
 
         return titleNotesArray;
     }

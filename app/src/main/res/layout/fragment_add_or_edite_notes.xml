@@ -1,8 +1,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:layout_margin="@dimen/activity_horizontal_margin">
+    android:layout_margin="@dimen/activity_horizontal_margin"
+    android:orientation="vertical">
 
     <EditText
         android:id="@+id/addNotesHead"
@@ -13,30 +13,47 @@
     <EditText
         android:id="@+id/addNotesText"
         android:layout_width="match_parent"
-        android:layout_height="200sp"
-        android:hint="@string/add_notes_text"
-        android:gravity="top"/>
-
+        android:layout_height="150sp"
+        android:gravity="top"
+        android:hint="@string/add_notes_text" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="right"
         android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/addNotesOkButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/add_notes_ok_button" />
 
-        <Button
-            android:id="@+id/addNotesBackButton"
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/add_notes_back_button" />
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/backImageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/back"
+                android:src="@drawable/ic_arrow_back_black_48dp"
+                android:background="@color/backgrounButton"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/addNotesImageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/ok"
+                android:src="@drawable/ic_done_black_48dp"
+                android:background="@color/backgrounButton"/>
+
+        </LinearLayout>
 
     </LinearLayout>
-
 
 </LinearLayout>

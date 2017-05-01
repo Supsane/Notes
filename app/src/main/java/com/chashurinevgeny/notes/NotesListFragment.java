@@ -27,15 +27,15 @@ public class NotesListFragment extends Fragment {
         super.onStart();
         View view = getView();
         if (view != null) {
-           listNotes = (ListView) view.findViewById(R.id.list_view);
+            listNotes = (ListView) view.findViewById(R.id.list_view);
             notesListBaseAdapter = new NotesListBaseAdapter(view.getContext());
             listNotes.setAdapter(notesListBaseAdapter);
         }
 
-        listNotesBehavior ();
+        listNotesBehavior();
     }
 
-    void listNotesBehavior () {
+    void listNotesBehavior() {
         listNotes.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE_MODAL);
         listNotes.setMultiChoiceModeListener(new AbsListView.MultiChoiceModeListener() {
             @Override
