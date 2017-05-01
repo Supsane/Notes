@@ -16,11 +16,11 @@
         android:layout_height="wrap_content"
         android:layout_weight="2"/>
 
-    <fragment
-        android:id="@+id/add_or_edit_notes"
-        class="com.chashurinevgeny.notes.AddOrEditeNotes"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="4"/>
+    <!--<fragment-->
+        <!--android:id="@+id/add_or_edit_notes"-->
+        <!--class="com.chashurinevgeny.notes.AddOrEditNotesFragment"-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_weight="4"/>-->
 
 </LinearLayout>

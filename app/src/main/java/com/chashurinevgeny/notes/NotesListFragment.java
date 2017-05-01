@@ -3,29 +3,29 @@ package com.chashurinevgeny.notes;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.ListFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.TextView;
+import android.widget.ListView;
 
-import java.util.List;
+public class NotesListFragment extends Fragment {
 
-public class NotesListFragment extends ListFragment {
+    ListView listNotes;
+    NotesListBaseAdapter notesListBaseAdapter;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        String[] titleNotes = new String[DBNotes.notes.length];
-
-        for (int i = 0; i < titleNotes.length; i++) {
-            titleNotes[i] = DBNotes.notes[i].getTitleNotes();
-        }
-
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(inflater.getContext(), android.R.layout.simple_list_item_1, titleNotes);
-        setListAdapter(adapter);
-        return super.onCreateView(inflater, container, savedInstanceState);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        return inflater.inflate(R.layout.list_view_fragment, container, false);
     }
 
+    @Override
+    public void onStart() {
+        super.onStart();
+        View view = getView();
+        if (view != null) {
+           listNotes = (ListView) view.findViewById(R.id.list_view);
+            notesListBaseAdapter = new NotesListBaseAdapter(view.getContext());
+            listNotes.setAdapter(notesListBaseAdapter);
+        }
+    }
 }
