@@ -3,6 +3,7 @@ package com.chashurinevgeny.notes;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -27,37 +28,10 @@ public class AddOrEditNotesFragment extends Fragment {
         back = (ImageButton) view.findViewById(R.id.backImageButton);
 
         imageButtonOkBehavior();
+        imageButtonBackBehavior();
 
         return view;
     }
-
-//    private void initView() {
-//        View view = getView();
-//        if (view != null) {
-//            notesListBaseAdapter = new NotesListBaseAdapter(view.getContext());
-//            titleNotesEditText = (EditText) view.findViewById(R.id.addNotesHead);
-//            textNotesEditText = (EditText) view.findViewById(R.id.addNotesText);
-//            ok = (ImageButton) view.findViewById(R.id.addNotesImageButton);
-//            back = (ImageButton) view.findViewById(R.id.backImageButton);
-//        }
-//    }
-
-//    @Override
-//    public void onClick(View v) {
-//        switch (v.getId()) {
-//            case R.id.addNotesImageButton: {
-//                Log.d("AddOrEditNotesFragmeent", "onClickAddNotesImageButton");
-//                imageButtonOkBehavior();
-//                break;
-//            }
-//            case R.id.backImageButton: {
-//                break;
-//            }
-//            default: {
-//                break;
-//            }
-//        }
-//    }
 
     private void imageButtonOkBehavior() {
         ok.setOnClickListener(new View.OnClickListener() {
@@ -66,18 +40,28 @@ public class AddOrEditNotesFragment extends Fragment {
                 Log.d("AddOrEditNotesFragment", "onClickAddNotesImageButton");
                 String titleNotes = titleNotesEditText.getText().toString();
                 String textNotes = textNotesEditText.getText().toString();
-                FragmentManager fm = getActivity().getSupportFragmentManager();
-
-                if (fm != null) {
-                    Fragment notesListFragment = fm.findFragmentById(R.id.fragment_list_notes);
-                    if (notesListFragment != null) {
-                        notesListBaseAdapter.addNotes(titleNotes, textNotes);
-                    }
+                if (titleNotes.equals("") && textNotes.equals("")) {
+                    Toast.makeText(v.getContext(), R.string.name_text_empty, Toast.LENGTH_LONG).show();
+                } else {
+                    notesListBaseAdapter.addNotes(titleNotes, textNotes);
+                    FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+                    NotesListFragment notesListFragment = new NotesListFragment();
+                    fragmentTransaction.replace(R.id.fragment_list_notes, notesListFragment);
+                    fragmentTransaction.commit();
+                    Toast.makeText(v.getContext(), R.string.add_notes_successfull, Toast.LENGTH_LONG).show();
                 }
+            }
+        });
+    }
 
-                Toast.makeText(v.getContext(), R.string.add_notes_successfull, Toast.LENGTH_LONG).show();
-                titleNotesEditText.setText("");
-                textNotesEditText.setText("");
+    private void imageButtonBackBehavior() {
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+                NotesListFragment notesListFragment = new NotesListFragment();
+                fragmentTransaction.replace(R.id.fragment_list_notes, notesListFragment);
+                fragmentTransaction.commit();
             }
         });
     }

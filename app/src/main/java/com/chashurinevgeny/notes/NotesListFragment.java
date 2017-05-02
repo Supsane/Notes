@@ -33,26 +33,13 @@ public class NotesListFragment extends Fragment {
         return view;
     }
 
-//    @Override
-//    public void onStart() {
-//        super.onStart();
-//        View view = getView();
-//        if (view != null) {
-//            listNotes = (ListView) view.findViewById(R.id.list_view);
-//            notesListBaseAdapter = new NotesListBaseAdapter(view.getContext());
-//            listNotes.setAdapter(notesListBaseAdapter);
-//        }
-//
-//        listNotesBehavior();
-//    }
+    @Override
+    public void onResume() {
+        super.onResume();
+        updateListNotes();
+    }
 
-//    @Override
-//    public void onResume() {
-//        super.onResume();
-//        notesListBaseAdapter.notifyDataSetChanged();
-//    }
-
-    void listNotesBehavior() {
+    private void listNotesBehavior() {
         listNotes.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE_MODAL);
         listNotes.setMultiChoiceModeListener(new AbsListView.MultiChoiceModeListener() {
             @Override
@@ -85,5 +72,14 @@ public class NotesListFragment extends Fragment {
 
             }
         });
+    }
+
+    private void updateListNotes() {
+        if (notesListBaseAdapter == null) {
+            notesListBaseAdapter = new NotesListBaseAdapter(getContext());
+            listNotes.setAdapter(notesListBaseAdapter);
+        } else {
+            notesListBaseAdapter.notifyDataSetChanged();
+        }
     }
 }

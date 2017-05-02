@@ -5,11 +5,12 @@
     <string name="action_edit">Edit</string>
     <string name="action_delete">Delete</string>
     <string name="action_done">Done</string>
-    <string name="add_notes_head">Название</string>
-    <string name="add_notes_text">Текст</string>
+    <string name="add_notes_head">Name</string>
+    <string name="add_notes_text">Text</string>
     <string name="ok">OK</string>
-    <string name="back">Назад</string>
+    <string name="back">Back</string>
     <string name="add_notes_title">Add Notes</string>
     <string name="add_notes_successfull">Note successfully added</string>
+    <string name="name_text_empty">Field \"Name\" and \"Text\" should not be empty</string>
 
 </resources>

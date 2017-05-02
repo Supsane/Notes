@@ -63,6 +63,5 @@ public class NotesListBaseAdapter extends BaseAdapter {
         textNotesList.add(textNotes);
         dbWorkNotesService.setTitleNotesList(titleNotesList);
         dbWorkNotesService.setTextNotesList(textNotesList);
-        notifyDataSetChanged();
     }
 }

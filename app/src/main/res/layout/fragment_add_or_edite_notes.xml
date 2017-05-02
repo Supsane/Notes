@@ -4,6 +4,15 @@
     android:layout_margin="@dimen/activity_horizontal_margin"
     android:orientation="vertical">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/add_notes_title"
+        android:textSize="@dimen/text_size_element_list_notes"
+        android:textStyle="bold"
+        android:textColor="@color/colorTextAddNotes"/>
+
     <EditText
         android:id="@+id/addNotesHead"
         android:layout_width="match_parent"
@@ -32,9 +41,9 @@
                 android:id="@+id/backImageButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@color/backgrounButton"
                 android:contentDescription="@string/back"
-                android:src="@drawable/ic_arrow_back_black_48dp"
-                android:background="@color/backgrounButton"/>
+                android:src="@drawable/ic_arrow_back_black_36dp" />
 
         </LinearLayout>
 
@@ -48,9 +57,9 @@
                 android:id="@+id/addNotesImageButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@color/backgrounButton"
                 android:contentDescription="@string/ok"
-                android:src="@drawable/ic_done_black_48dp"
-                android:background="@color/backgrounButton"/>
+                android:src="@drawable/ic_done_black_36dp" />
 
         </LinearLayout>
 
