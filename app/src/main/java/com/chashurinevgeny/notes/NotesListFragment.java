@@ -2,6 +2,7 @@ package com.chashurinevgeny.notes;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.ActionMode;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -22,20 +23,25 @@ public class NotesListFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.list_view_fragment, container, false);
 
+        return view;
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        View view = getView();
         if (view != null) {
             listNotes = (ListView) view.findViewById(R.id.list_view);
             notesListBaseAdapter = new NotesListBaseAdapter(view.getContext());
             listNotes.setAdapter(notesListBaseAdapter);
+            listNotesBehavior();
         }
-
-        listNotesBehavior();
-
-        return view;
     }
 
     @Override
     public void onResume() {
         super.onResume();
+        Log.d("NotesListFragment", "onResume");
         updateListNotes();
     }
 
@@ -75,11 +81,7 @@ public class NotesListFragment extends Fragment {
     }
 
     private void updateListNotes() {
-        if (notesListBaseAdapter == null) {
-            notesListBaseAdapter = new NotesListBaseAdapter(getContext());
-            listNotes.setAdapter(notesListBaseAdapter);
-        } else {
-            notesListBaseAdapter.notifyDataSetChanged();
-        }
+        notesListBaseAdapter = new NotesListBaseAdapter(getContext());
+        listNotes.setAdapter(notesListBaseAdapter);
     }
 }

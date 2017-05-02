@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -21,13 +22,15 @@ public class NotesListBaseAdapter extends BaseAdapter {
     private LayoutInflater layoutInflater;
     private Context context;
 
-    private List<String> titleNotesList = dbWorkNotesService.getTitleNotesList();
-    private List<String> textNotesList = dbWorkNotesService.getTextNotesList();
+    private List<String> titleNotesList;
+    private List<String> textNotesList;
 
 
     NotesListBaseAdapter(Context context) {
         this.context = context;
         layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        titleNotesList = dbWorkNotesService.getTitleNotesList();
+        textNotesList = dbWorkNotesService.getTextNotesList();
     }
 
     @Override
@@ -63,5 +66,6 @@ public class NotesListBaseAdapter extends BaseAdapter {
         textNotesList.add(textNotes);
         dbWorkNotesService.setTitleNotesList(titleNotesList);
         dbWorkNotesService.setTextNotesList(textNotesList);
+        notifyDataSetChanged();
     }
 }
