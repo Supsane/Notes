@@ -29,12 +29,12 @@ class DBWorkNotesService implements WorkNotesService {
         return textNotesList;
     }
 
-    void setTitleNotesList(List<String> titleNotesList) {
-        this.titleNotesList = titleNotesList;
+    void addNotesTitleInList (String titleNotes) {
+        titleNotesList.add(titleNotes);
     }
 
-    void setTextNotesList(List<String> textNotesList) {
-        this.textNotesList = textNotesList;
+    void addNotesTextInList (String textNotes) {
+        textNotesList.add(textNotes);
     }
 
     @Override

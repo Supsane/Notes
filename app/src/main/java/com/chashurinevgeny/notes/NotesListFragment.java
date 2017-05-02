@@ -22,10 +22,6 @@ public class NotesListFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.list_view_fragment, container, false);
-        listNotes = (ListView) view.findViewById(R.id.list_view);
-        notesListBaseAdapter = new NotesListBaseAdapter(view.getContext());
-        listNotes.setAdapter(notesListBaseAdapter);
-        listNotesBehavior();
         return view;
     }
 
@@ -33,15 +29,21 @@ public class NotesListFragment extends Fragment {
     public void onStart() {
         super.onStart();
         Log.d("NotesListFragment", "onStart");
-        updateListNotes();
+        View view = getView();
+        if (view != null) {
+            listNotes = (ListView) view.findViewById(R.id.list_view);
+            notesListBaseAdapter = new NotesListBaseAdapter(view.getContext());
+            listNotes.setAdapter(notesListBaseAdapter);
+            listNotesBehavior();
+        }
     }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        Log.d("NotesListFragment", "onResume");
-        updateListNotes();
-    }
+//
+//    @Override
+//    public void onResume() {
+//        super.onResume();
+//        Log.d("NotesListFragment", "onResume");
+//        updateListNotes();
+//    }
 
     private void listNotesBehavior() {
         listNotes.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE_MODAL);
@@ -79,7 +81,6 @@ public class NotesListFragment extends Fragment {
     }
 
     private void updateListNotes() {
-        notesListBaseAdapter = new NotesListBaseAdapter(getActivity());
-        listNotes.setAdapter(notesListBaseAdapter);
+        notesListBaseAdapter.notifyDataSetChanged();
     }
 }

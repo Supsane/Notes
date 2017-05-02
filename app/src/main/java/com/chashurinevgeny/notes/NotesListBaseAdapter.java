@@ -1,6 +1,5 @@
 package com.chashurinevgeny.notes;
 
-
 import android.content.Context;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -21,8 +20,8 @@ public class NotesListBaseAdapter extends BaseAdapter {
     private DBWorkNotesService dbWorkNotesService = new DBWorkNotesService();
     private Context context;
 
-    private List<String> titleNotesList = dbWorkNotesService.getTitleNotesList();;
-    private List<String> textNotesList = dbWorkNotesService.getTextNotesList();;
+    private List<String> titleNotesList = dbWorkNotesService.getTitleNotesList();
+    private List<String> textNotesList = dbWorkNotesService.getTextNotesList();
 
 
     NotesListBaseAdapter(Context context) {
@@ -57,12 +56,10 @@ public class NotesListBaseAdapter extends BaseAdapter {
         return convertView;
     }
 
-    void addNotes (String titleNotes, String textNotes) {
+    void addNotes(String titleNotes, String textNotes) {
         Log.d("NotesListBaseAdapter", "addNotes");
-        titleNotesList.add(titleNotes);
-        textNotesList.add(textNotes);
-        dbWorkNotesService.setTitleNotesList(titleNotesList);
-        dbWorkNotesService.setTextNotesList(textNotesList);
+        dbWorkNotesService.addNotesTitleInList(titleNotes);
+        dbWorkNotesService.addNotesTextInList(textNotes);
         notifyDataSetChanged();
     }
 }
