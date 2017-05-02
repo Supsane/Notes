@@ -21,15 +21,25 @@ class DBWorkNotesService implements WorkNotesService {
         textNotesList.add("Text 3");
     }
 
-    @Override
-    public void connect() {
+    List<String> getTitleNotesList() {
+        return titleNotesList;
+    }
 
+    List<String> getTextNotesList() {
+        return textNotesList;
+    }
+
+    void setTitleNotesList(List<String> titleNotesList) {
+        this.titleNotesList = titleNotesList;
+    }
+
+    void setTextNotesList(List<String> textNotesList) {
+        this.textNotesList = textNotesList;
     }
 
     @Override
-    public void addNotes(String titleNotes, String textNotes) {
-        titleNotesList.add(titleNotes);
-        textNotesList.add(textNotes);
+    public void connect() {
+
     }
 
     @Override
@@ -40,14 +50,6 @@ class DBWorkNotesService implements WorkNotesService {
     @Override
     public void editNotes(String titleNotes, String textNotes, int Notes) {
 
-    }
-
-    @Override
-    public String[] returnTitleNotes() {
-
-        String[] titleNotesArray = titleNotesList.toArray(new String[titleNotesList.size()]);
-
-        return titleNotesArray;
     }
 
     @Override

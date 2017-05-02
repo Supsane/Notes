@@ -35,6 +35,12 @@ public class NotesListFragment extends Fragment {
         listNotesBehavior();
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        notesListBaseAdapter.notifyDataSetChanged();
+    }
+
     void listNotesBehavior() {
         listNotes.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE_MODAL);
         listNotes.setMultiChoiceModeListener(new AbsListView.MultiChoiceModeListener() {

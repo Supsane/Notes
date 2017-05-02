@@ -10,5 +10,6 @@
     <string name="ok">OK</string>
     <string name="back">Назад</string>
     <string name="add_notes_title">Add Notes</string>
+    <string name="add_notes_successfull">Note successfully added</string>
 
 </resources>
