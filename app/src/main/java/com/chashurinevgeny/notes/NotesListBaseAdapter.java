@@ -19,18 +19,14 @@ import java.util.List;
 public class NotesListBaseAdapter extends BaseAdapter {
 
     private DBWorkNotesService dbWorkNotesService = new DBWorkNotesService();
-    private LayoutInflater layoutInflater;
     private Context context;
 
-    private List<String> titleNotesList;
-    private List<String> textNotesList;
+    private List<String> titleNotesList = dbWorkNotesService.getTitleNotesList();;
+    private List<String> textNotesList = dbWorkNotesService.getTextNotesList();;
 
 
     NotesListBaseAdapter(Context context) {
         this.context = context;
-        layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        titleNotesList = dbWorkNotesService.getTitleNotesList();
-        textNotesList = dbWorkNotesService.getTextNotesList();
     }
 
     @Override
@@ -51,6 +47,7 @@ public class NotesListBaseAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         if (convertView == null) {
+            LayoutInflater layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = layoutInflater.inflate(R.layout.list_view, parent, false);
         }
 

@@ -22,20 +22,18 @@ public class NotesListFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.list_view_fragment, container, false);
-
+        listNotes = (ListView) view.findViewById(R.id.list_view);
+        notesListBaseAdapter = new NotesListBaseAdapter(view.getContext());
+        listNotes.setAdapter(notesListBaseAdapter);
+        listNotesBehavior();
         return view;
     }
 
     @Override
     public void onStart() {
         super.onStart();
-        View view = getView();
-        if (view != null) {
-            listNotes = (ListView) view.findViewById(R.id.list_view);
-            notesListBaseAdapter = new NotesListBaseAdapter(view.getContext());
-            listNotes.setAdapter(notesListBaseAdapter);
-            listNotesBehavior();
-        }
+        Log.d("NotesListFragment", "onStart");
+        updateListNotes();
     }
 
     @Override
@@ -81,7 +79,7 @@ public class NotesListFragment extends Fragment {
     }
 
     private void updateListNotes() {
-        notesListBaseAdapter = new NotesListBaseAdapter(getContext());
+        notesListBaseAdapter = new NotesListBaseAdapter(getActivity());
         listNotes.setAdapter(notesListBaseAdapter);
     }
 }
